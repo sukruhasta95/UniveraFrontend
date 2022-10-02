@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Para Yatırma</h1>
+<div mat-dialog-content >
+  <label>Miktarı Giriniz</label>
+</div>
+
+<div>
+  <input type="number" id="quantity" name="quantity" min="0" #quantity>
+<div mat-dialog-actions>
+  <button class="btn btn-success" (click)="depositAccount(quantity.value)" [mat-dialog-close]="true">Para Yatır</button>
+  <button class="btn btn-danger ms-2" mat-dialog-close >İptal Et</button>
+</div>

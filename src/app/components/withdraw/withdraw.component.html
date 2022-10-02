@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Dialog with elements</h1>
+<div mat-dialog-content >
+  <label>Miktarı Giriniz</label>
+</div>
+<div>
+  <input type="number" id="quantity" name="quantity" min="0" #quantity>
+</div>
+<div mat-dialog-actions>
+  <button class="btn btn-warning" (click)="withdrawAccount(quantity.value)" [mat-dialog-close]="true">Para Çek</button>
+  <button class="btn btn-danger ms-2" mat-dialog-close >İptal Et</button>
+</div>
