@@ -6,7 +6,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { DepositComponent } from 'src/app/components/deposit/deposit.component'
 import { WithdrawComponent } from 'src/app/components/withdraw/withdraw.component'
 
-
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -25,28 +24,33 @@ export class AccountComponent implements OnInit {
       .get<AccountResponseModel>(this.apiUrl)
       .subscribe((response) => {
         this.accounts = response.data
-        console.log(this.accounts)
       });
   }
 
-  openDepositDialog(Id:any) {
-
-     this.dialog.open(DepositComponent,{
+  openDepositDialog(Id: any) {
+    this.dialog.open(DepositComponent, {
       data: { Id }
-     }
 
+    })
+      .afterClosed().subscribe(result => {
+        if (result){
+          this.getAccounts()
+        }
 
-     )
-    .afterClosed().subscribe(result => {
-      if(result)
-           this.getAccounts()
-
-    });
-
-  }
-  openWithdrawDialog() {
-    this.dialog.open(WithdrawComponent)
+      });
 
   }
+  openWithdrawDialog(Id: any) {
+    this.dialog.open(WithdrawComponent, {
+      data: { Id }
+    })
+      .afterClosed().subscribe(result => {
+        if (result){
+          this.getAccounts()
+        }
 
+      });
+  }
 }
+
+

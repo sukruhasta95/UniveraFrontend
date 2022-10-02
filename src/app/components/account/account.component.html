@@ -1,5 +1,4 @@
-
-<div class="container mx-auto"  style="width: 1150px">
+<div class="container mx-auto" style="width: 1150px">
   <table class="table table-bordered table-sm mt-4">
     <thead>
       <tr>
@@ -7,26 +6,18 @@
         <th>Hesap Adı</th>
         <th>Hesap Bakiyesi</th>
         <th>İşlemler</th>
-
       </tr>
     </thead>
     <tbody>
-
       <tr *ngFor="let account of accounts">
-        <td id="accountId" class="col-1" >{{account.id}}</td>
+        <td id="accountId" class="col-1">{{account.id}}</td>
         <td class="col-4">{{account.name}}</td>
         <td class="col-4">{{account.totalBalance}}</td>
         <td class="col-3">
           <button class="btn btn-success" (click)="openDepositDialog(account.id)">Para Yatır</button>
-          <button class="btn btn-warning ms-2" (click)="openWithdrawDialog()">Para Çek</button>
+          <button class="btn btn-warning ms-2" (click)="openWithdrawDialog(account.id)">Para Çek</button>
         </td>
-
-    </tr>
-
+      </tr>
     </tbody>
-    </table>
-
+  </table>
 </div>
-
-
-
